@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - will print the lowercase alphabet in reverse
+ * main - print the lowercase alphabet in reverse
  * this should be followed by a new line
  * Return : Always 0 (Success)
  */
