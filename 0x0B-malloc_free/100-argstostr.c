@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-
 /**
  * argstostr - Concatenates all arguments of program into a string
  * @ac: The number of arguments passed
@@ -8,37 +7,38 @@
  *
  * Return: NULL if function fails, else, pointer to the 
  */
-
 char *argstostr(int ac, char **av)
 {
-	char *new_string;
-	int arg, content, count, length;
+	int i, j, k, len;
+	char *str;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	for (arg = 0; arg < ac; arg++)
+	for (i = 0; i < ac; i++)
 	{
-		for (content = 0; av[arg][content]; content++)
-			length++;
+		for (j = 0; av[i][j] != '\0'; j++)
+			len++;
+		len++;
 	}
 
-	new_string = malloc(sizeof(char) * length + 1);
+	str = malloc(sizeof(char) * (len + 1));
 
-	if (new_string == NULL)
+	if (str == NULL)
 		return (NULL);
 
-	count = 0;
+	k = 0;
 
-	for (arg = 0; arg < ac; arg++)
+	for (i = 0; i < ac; i++)
 	{
-		for (content = 0; av[arg][content]; content++)
-			new_string[count++] = av[arg][content];
-
-		new_string[count++] = '\n';
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			str[k] = av[i][j];
+			k++;
+		}
+		str[k] = '\n';
+		k++;
 	}
-
-	new_string[length] = '\0';
-
-	return (new_string);
+	
+	return (str);
 }
